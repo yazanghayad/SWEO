@@ -1,2 +1,3 @@
-# Exclude cleanup/reference files from Vercel build
-__CLEANUP__
+node_modules
+.git
+tests
