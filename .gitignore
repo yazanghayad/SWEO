@@ -60,3 +60,6 @@ backup-*.zip
 # IDE
 .idea/
 *.swp
+
+# IDE
+*.swp
