@@ -47,3 +47,12 @@ next-env.d.ts
 # Sentry Config File
 .env.sentry-build-plugin
 public/videoprojekt-1.mp4
+
+# Personal/temp files
+.cache/
+test-results/
+playwright-report/
+tema/
+*.bak
+*.bak2
+backup-*.zip
