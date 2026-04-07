@@ -1,0 +1,87 @@
+import React from 'react';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Heading } from '../ui/heading';
+import type { InfobarContent } from '@/components/ui/infobar';
+
+function PageSkeleton() {
+  return (
+    <div className='flex flex-1 animate-pulse flex-col gap-5 p-4 md:px-6'>
+      <div className='flex items-center justify-between'>
+        <div>
+          <div className='bg-muted mb-2.5 h-7 w-48 rounded-md' />
+          <div className='bg-muted h-4 w-80 rounded-md' />
+        </div>
+      </div>
+      <div className='bg-muted mt-4 h-40 w-full rounded-lg' />
+      <div className='bg-muted h-40 w-full rounded-lg' />
+    </div>
+  );
+}
+
+export default function PageContainer({
+  children,
+  scrollable = true,
+  isloading = false,
+  access = true,
+  accessFallback,
+  pageTitle,
+  pageDescription,
+  infoContent,
+  pageHeaderAction
+}: {
+  children: React.ReactNode;
+  scrollable?: boolean;
+  isloading?: boolean;
+  access?: boolean;
+  accessFallback?: React.ReactNode;
+  pageTitle?: string;
+  pageDescription?: string;
+  infoContent?: InfobarContent;
+  pageHeaderAction?: React.ReactNode;
+}) {
+  if (!access) {
+    return (
+      <div className='flex flex-1 items-center justify-center p-4 md:px-6'>
+        {accessFallback ?? (
+          <div className='text-muted-foreground text-center text-lg'>
+            You do not have access to this page.
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  const content = isloading ? <PageSkeleton /> : children;
+
+  return scrollable ? (
+    <ScrollArea className='h-[calc(100dvh-44px)]'>
+      <div className='flex flex-1 flex-col px-4 py-6 md:px-6 md:py-8 lg:px-8'>
+        <div className='mx-auto w-full max-w-[1600px]'>
+          <div className='mb-8 flex items-start justify-between'>
+            <Heading
+              title={pageTitle ?? ''}
+              description={pageDescription ?? ''}
+              infoContent={infoContent}
+            />
+            {pageHeaderAction && <div>{pageHeaderAction}</div>}
+          </div>
+          {content}
+        </div>
+      </div>
+    </ScrollArea>
+  ) : (
+    <div className='flex flex-1 flex-col px-4 py-6 md:px-6 md:py-8 lg:px-8'>
+      <div className='mx-auto w-full max-w-[1600px]'>
+        <div className='mb-8 flex items-start justify-between'>
+          <Heading
+            title={pageTitle ?? ''}
+            description={pageDescription ?? ''}
+            infoContent={infoContent}
+          />
+          {pageHeaderAction && <div>{pageHeaderAction}</div>}
+        </div>
+        {content}
+      </div>
+    </div>
+  );
+}

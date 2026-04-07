@@ -1,0 +1,1 @@
+@layer components{.banner-scroll{animation:scroll 12s linear infinite;transform:translateX(0)}@keyframes scroll{0%{transform:translateX(0)}to{transform:translateX(calc(-33% - 18px))}}}

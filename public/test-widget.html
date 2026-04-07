@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Widget Test Page — SWEO AI</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #f0f2ff 0%, #f8f9fc 50%, #eef6ff 100%); color: #1e293b; min-height: 100vh; }
+    .container { max-width: 680px; margin: 0 auto; padding: 80px 24px; }
+    .badge { display: inline-block; background: linear-gradient(135deg, #6366f1, #4f46e5); color: #fff; font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 999px; margin-bottom: 20px; letter-spacing: .03em; }
+    h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; background: linear-gradient(135deg, #1e293b, #6366f1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .subtitle { color: #64748b; font-size: 17px; line-height: 1.7; margin-bottom: 32px; }
+    .cards { display: grid; gap: 16px; }
+    .card { background: #fff; border-radius: 14px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,.04); border: 1px solid #e8ecf1; }
+    .card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .card p { color: #64748b; font-size: 14px; line-height: 1.6; }
+    .card .icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+    .icon-purple { background: #ede9fe; }
+    .icon-green { background: #dcfce7; }
+    .icon-blue { background: #dbeafe; }
+    .icon-amber { background: #fef3c7; }
+    .icon-rose { background: #ffe4e6; }
+    .icon-teal { background: #ccfbf1; }
+    code { background: #f1f5f9; padding: 2px 8px; border-radius: 6px; font-size: 13px; font-family: 'SF Mono', 'Cascadia Code', Consolas, monospace; }
+    .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #94a3b8; margin: 32px 0 12px; }
+    .footer { text-align: center; margin-top: 48px; font-size: 13px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge">SWEO AI — Production Widget</span>
+    <h1>Chat Widget Test</h1>
+    <p class="subtitle">
+      The chat widget loads configuration from your tenant settings, supports AI conversations
+      with RAG, human agent handoff, queue management, and real-time message polling.
+    </p>
+
+    <div class="section-title">Core Features</div>
+    <div class="cards">
+      <div class="card">
+        <h3><span class="icon icon-purple">💬</span> AI Conversation</h3>
+        <p>Click the chat bubble to start. The AI uses your knowledge base via RAG to answer questions, with source citations.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon icon-green">✉️</span> Email Verification</h3>
+        <p>If <code>requireEmail</code> is enabled, users enter their name and email before chatting — stored for all future messages.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon icon-blue">🎨</span> Dynamic Branding</h3>
+        <p>Brand color, bot name, position, and welcome message load from <code>/api/widget/config</code>. No widget rebuild needed.</p>
+      </div>
+    </div>
+
+    <div class="section-title">Handoff & Human Agents</div>
+    <div class="cards">
+      <div class="card">
+        <h3><span class="icon icon-amber">🙋</span> Talk to a Person</h3>
+        <p>Customers can click "Talk to a person" to request a human agent. The AI summarizes the conversation and places them in queue.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon icon-rose">📋</span> Queue & Status</h3>
+        <p>While waiting, customers see their queue position. The widget polls <code>/api/chat/queue-status</code> in real time.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon icon-teal">👤</span> Agent Messages</h3>
+        <p>Human agent replies show a green avatar and "Agent" badge. System messages (close, handoff) appear as centered banners.</p>
+      </div>
+    </div>
+
+    <div class="section-title">Lifecycle</div>
+    <div class="cards">
+      <div class="card">
+        <h3><span class="icon icon-amber">⭐</span> CSAT Feedback</h3>
+        <p>After each AI resolution, a 1–5 star rating widget appears. Feedback is stored via <code>/api/conversations/csat</code>.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon icon-purple">🔄</span> Session Restore</h3>
+        <p>Conversations persist across page reloads via <code>sessionStorage</code>. Status, messages, and polling resume automatically.</p>
+      </div>
+    </div>
+
+    <p class="footer">The widget only needs <code>data-api-key</code> and <code>data-api-url</code> — everything else is loaded from the server.</p>
+  </div>
+
+  <!-- Production widget: only API key needed when served from same origin -->
+  <script
+    src="/api/widget/chat-widget.js"
+    data-api-key="01ae25bf848a4402a5491b224c742ebd"
+  ></script>
+</body>
+</html>

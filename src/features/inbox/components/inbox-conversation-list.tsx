@@ -1,0 +1,231 @@
+'use client';
+
+import { useEffect, useState, useCallback } from 'react';
+import { listConversationsAction } from '@/features/conversation/actions/conversation-crud';
+import { useRealtime } from '@/hooks/use-realtime';
+import type { Conversation, ConversationStatus } from '@/types/appwrite';
+import type { InboxFilters } from './inbox-page-client';
+import { Input } from '@/components/ui/input';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Icons } from '@/components/icons';
+import { cn } from '@/lib/utils';
+import { ArrowDownUp, Mail, MessageSquare, Phone, Search } from 'lucide-react';
+import { formatDistanceToNow } from '@/lib/format';
+
+/* Channel display config */
+const channelConfig: Record<
+  string,
+  {
+    icon: React.ComponentType<{ className?: string }>;
+    label: string;
+    color: string;
+    letterBg: string;
+  }
+> = {
+  web: {
+    icon: MessageSquare,
+    label: 'Messenger',
+    color: 'text-blue-600',
+    letterBg: 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300'
+  },
+  email: {
+    icon: Mail,
+    label: 'Email',
+    color: 'text-emerald-600',
+    letterBg:
+      'bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300'
+  },
+  whatsapp: {
+    icon: MessageSquare,
+    label: 'WhatsApp',
+    color: 'text-green-600',
+    letterBg:
+      'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300'
+  },
+  sms: {
+    icon: Phone,
+    label: 'Phone',
+    color: 'text-purple-600',
+    letterBg:
+      'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300'
+  },
+  voice: {
+    icon: Phone,
+    label: 'Phone',
+    color: 'text-orange-600',
+    letterBg:
+      'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300'
+  }
+};
+
+interface InboxConversationListProps {
+  tenantId: string;
+  filters: InboxFilters;
+  selectedId: string | null;
+  onSelect: (id: string) => void;
+  userName?: string;
+}
+
+export function InboxConversationList({
+  tenantId,
+  filters,
+  selectedId,
+  onSelect,
+  userName = 'User'
+}: InboxConversationListProps) {
+  const [conversations, setConversations] = useState<Conversation[]>([]);
+  const [_total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
+
+  const viewToStatus = useCallback((): ConversationStatus | undefined => {
+    switch (filters.view) {
+      case 'sweo-resolved':
+      case 'zendesk-resolved':
+      case 'intercom-resolved':
+      case 'salesforce-resolved':
+        return 'resolved';
+      case 'sweo-escalated':
+        return 'escalated';
+      case 'sweo-pending':
+      case 'zendesk-active':
+      case 'intercom-active':
+      case 'salesforce-active':
+        return 'active';
+      default:
+        return filters.status;
+    }
+  }, [filters]);
+
+  const load = useCallback(async () => {
+    setLoading(true);
+    const res = await listConversationsAction(tenantId, {
+      status: viewToStatus(),
+      channel: filters.channel,
+      source: filters.source,
+      limit: 50
+    });
+    if (res.success) {
+      setConversations(res.conversations ?? []);
+      setTotal(res.total ?? 0);
+    }
+    setLoading(false);
+  }, [tenantId, viewToStatus, filters.channel, filters.source]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  useRealtime<Conversation>({
+    collection: 'CONVERSATIONS',
+    events: ['create', 'update'],
+    filter: (convo) => convo.tenantId === tenantId,
+    onEvent: () => load()
+  });
+
+  const displayList = conversations;
+  const openCount = conversations.filter((c) => c.status === 'active').length;
+
+  const filtered = search
+    ? displayList.filter(
+        (c) =>
+          (c.userId ?? '').toLowerCase().includes(search.toLowerCase()) ||
+          c.$id.toLowerCase().includes(search.toLowerCase())
+      )
+    : displayList;
+
+  return (
+    <div className='flex h-full w-80 shrink-0 flex-col overflow-hidden border-r border-border/40'>
+      {/* header with user name + search icon */}
+      <div className='flex h-12 items-center justify-between border-b border-border/40 px-4'>
+        <span className='truncate font-serif text-sm font-light tracking-tight'>{userName}</span>
+        <Search className='h-4 w-4 shrink-0 text-muted-foreground' />
+      </div>
+
+      {/* Open count + sort */}
+      <div className='flex items-center justify-between border-b border-border/40 px-4 py-2'>
+        <span className='font-mono text-[10px] tabular-nums text-muted-foreground'>
+          {openCount} Open
+        </span>
+        <button className='flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground'>
+          Last activity
+          <ArrowDownUp className='h-3 w-3' />
+        </button>
+      </div>
+
+      {/* Search (collapsible via icon above) */}
+      <div className='border-b border-border/40 p-2'>
+        <div className='relative'>
+          <Search className='text-muted-foreground absolute top-1/2 left-2.5 h-3.5 w-3.5 -translate-y-1/2' />
+          <Input
+            placeholder='Search conversations...'
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className='h-8 pl-8 text-xs'
+          />
+        </div>
+      </div>
+
+      {/* Conversation list */}
+      <ScrollArea className='flex-1'>
+        {loading && conversations.length === 0 ? (
+          <div className='flex items-center justify-center py-12'>
+            <Icons.spinner className='text-muted-foreground h-5 w-5 animate-spin' />
+          </div>
+        ) : filtered.length === 0 ? (
+          <div className='text-muted-foreground py-12 text-center text-sm'>
+            No conversations
+          </div>
+        ) : (
+          <div className='divide-y'>
+            {filtered.map((convo) => {
+              const cfg = channelConfig[convo.channel] ?? channelConfig.web;
+              const letter = cfg.label.charAt(0).toUpperCase();
+              const preview = (convo as unknown as Record<string, unknown>)
+                ._preview as string | undefined;
+
+              return (
+                <button
+                  key={convo.$id}
+                  onClick={() => onSelect(convo.$id)}
+                  className={cn(
+                    'w-full px-3 py-3 text-left transition-all duration-200',
+                    selectedId === convo.$id ? 'bg-primary/5' : 'hover:bg-muted/50'
+                  )}
+                >
+                  <div className='flex items-start gap-2.5'>
+                    {/* Channel letter avatar */}
+                    <div
+                      className={cn(
+                        'flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold',
+                        cfg.letterBg
+                      )}
+                    >
+                      {letter}
+                    </div>
+
+                    <div className='min-w-0 flex-1'>
+                      {/* Title row */}
+                      <div className='flex items-center justify-between'>
+                        <span className='truncate text-sm font-medium'>
+                          {convo.userId ?? 'Anonymous'}
+                        </span>
+                        <span className='shrink-0 pl-2 font-mono text-[10px] tabular-nums text-muted-foreground'>
+                          {formatDistanceToNow(convo.$createdAt)}
+                        </span>
+                      </div>
+                      {/* Subtitle / preview */}
+                      <p className='text-muted-foreground mt-0.5 truncate text-xs'>
+                        {preview ?? convo.status}
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </ScrollArea>
+    </div>
+  );
+}

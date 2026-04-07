@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1366" height="768" viewBox="0 0 1366 768">
+  <defs>
+    <filter id="shadow1" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>
+    </filter>
+    <filter id="shadow2" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f4f5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1366" height="768" fill="url(#bgGrad)" rx="0"/>
+
+  <!-- Header Section -->
+  <text x="683" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="800" fill="#18181b" text-anchor="middle">
+    SWEO Copilot, AI Assistant for your team
+    <tspan dx="12" font-size="36">⚡</tspan>
+  </text>
+  <text x="683" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#3f3f46" text-anchor="middle" font-style="italic">
+    Instant answers from your knowledge base — right inside the inbox.
+  </text>
+
+  <!-- Left Side: Inbox + AI Suggestion -->
+  <!-- SWEO Copilot label -->
+  <g transform="translate(80, 200)">
+    <!-- Icon -->
+    <rect x="0" y="0" width="36" height="36" rx="8" fill="#0d9488"/>
+    <text x="18" y="24" font-family="system-ui, sans-serif" font-size="18" fill="white" text-anchor="middle">⚡</text>
+    <text x="46" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#18181b">SWEO Copilot</text>
+  </g>
+
+  <!-- Search Bar -->
+  <g transform="translate(80, 270)" filter="url(#shadow2)">
+    <rect width="540" height="50" rx="12" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+    <text x="44" y="31" font-family="system-ui, sans-serif" font-size="15" fill="#a1a1aa">Customer asks about refund policy</text>
+    <!-- Search icon -->
+    <circle cx="24" cy="25" r="8" fill="none" stroke="#a1a1aa" stroke-width="1.5"/>
+    <line x1="30" y1="31" x2="34" y2="35" stroke="#a1a1aa" stroke-width="1.5"/>
+    <!-- Find Answer button -->
+    <rect x="410" y="8" width="118" height="34" rx="8" fill="#0d9488"/>
+    <text x="452" y="30" font-family="system-ui, sans-serif" font-size="13" fill="white" font-weight="600">Find Answer</text>
+    <text x="430" y="30" font-family="system-ui, sans-serif" font-size="14" fill="white">✨</text>
+  </g>
+
+  <!-- AI Suggestion Card -->
+  <g transform="translate(80, 340)" filter="url(#shadow1)">
+    <rect width="540" height="240" rx="16" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+    
+    <!-- Header -->
+    <text x="24" y="36" font-family="system-ui, sans-serif" font-size="15" fill="#0d9488" font-weight="600">✨ AI Suggested Reply</text>
+    
+    <!-- Divider -->
+    <line x1="24" y1="52" x2="516" y2="52" stroke="#f4f4f5" stroke-width="1"/>
+    
+    <!-- Content -->
+    <text x="24" y="80" font-family="system-ui, sans-serif" font-size="14" fill="#3f3f46">
+      <tspan x="24" dy="0">Hi there! I'd be happy to help with your refund request.</tspan>
+      <tspan x="24" dy="24">Our refund policy allows returns within 30 days of</tspan>
+      <tspan x="24" dy="24">purchase. To process your refund:</tspan>
+      <tspan x="24" dy="32">1. Go to your order history</tspan>
+      <tspan x="24" dy="24">2. Select the order you'd like to return</tspan>
+      <tspan x="24" dy="24">3. Click "Request Refund"</tspan>
+    </text>
+    
+    <!-- Action buttons -->
+    <rect x="24" y="198" width="100" height="30" rx="6" fill="#0d9488"/>
+    <text x="52" y="218" font-family="system-ui, sans-serif" font-size="12" fill="white" font-weight="600" text-anchor="middle">Use reply</text>
+    <text x="72" y="218" font-family="system-ui, sans-serif" font-size="12" fill="white" font-weight="600">✓</text>
+    
+    <rect x="136" y="198" width="70" height="30" rx="6" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+    <text x="171" y="218" font-family="system-ui, sans-serif" font-size="12" fill="#71717a" font-weight="500" text-anchor="middle">Edit</text>
+    
+    <rect x="218" y="198" width="80" height="30" rx="6" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+    <text x="258" y="218" font-family="system-ui, sans-serif" font-size="12" fill="#71717a" font-weight="500" text-anchor="middle">Dismiss</text>
+  </g>
+
+  <!-- Confidence badge -->
+  <g transform="translate(80, 600)" filter="url(#shadow2)">
+    <rect width="540" height="40" rx="10" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+    <text x="20" y="26" font-family="system-ui, sans-serif" font-size="13" fill="#71717a">Confidence:</text>
+    <rect x="105" y="13" width="60" height="14" rx="4" fill="#dcfce7"/>
+    <text x="120" y="25" font-family="system-ui, sans-serif" font-size="11" fill="#16a34a" font-weight="600">98% High</text>
+    <text x="200" y="26" font-family="system-ui, sans-serif" font-size="13" fill="#71717a">Source: Refund Policy Article</text>
+    <text x="470" y="26" font-family="system-ui, sans-serif" font-size="12" fill="#0d9488" font-weight="500">View source →</text>
+  </g>
+
+  <!-- Right Side: Inbox Chat Widget -->
+  <g transform="translate(750, 200)" filter="url(#shadow1)">
+    <rect width="320" height="440" rx="16" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+    
+    <!-- Widget Header -->
+    <rect width="320" height="52" rx="16" fill="#0d9488"/>
+    <rect y="16" width="320" height="36" fill="#0d9488"/>
+    <g transform="translate(16, 14)">
+      <rect width="28" height="28" rx="6" fill="white" fill-opacity="0.2"/>
+      <text x="14" y="20" font-family="system-ui, sans-serif" font-size="14" fill="white" text-anchor="middle">⚡</text>
+    </g>
+    <text x="54" y="34" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="white">SWEO Copilot</text>
+    <text x="260" y="34" font-family="system-ui, sans-serif" font-size="12" fill="white" fill-opacity="0.7">Inbox</text>
+
+    <!-- Conversation thread -->
+    <!-- Customer message -->
+    <g transform="translate(16, 72)">
+      <rect x="60" y="0" width="240" height="50" rx="12" fill="#f4f4f5"/>
+      <text x="76" y="22" font-family="system-ui, sans-serif" font-size="12" fill="#3f3f46" font-weight="500">Customer</text>
+      <text x="76" y="40" font-family="system-ui, sans-serif" font-size="11" fill="#52525b">I want to return my order #4521</text>
+    </g>
+
+    <!-- AI suggestion bubble -->
+    <g transform="translate(16, 140)">
+      <rect x="0" y="0" width="260" height="120" rx="12" fill="#f0fdfa"/>
+      <rect x="0" y="0" width="260" height="120" rx="12" fill="none" stroke="#99f6e4" stroke-width="1"/>
+      
+      <g transform="translate(12, 14)">
+        <rect width="18" height="18" rx="4" fill="#0d9488"/>
+        <text x="9" y="13" font-family="system-ui, sans-serif" font-size="9" fill="white" text-anchor="middle">AI</text>
+      </g>
+      <text x="38" y="26" font-family="system-ui, sans-serif" font-size="11" fill="#0d9488" font-weight="600">Copilot suggests:</text>
+      
+      <text x="12" y="50" font-family="system-ui, sans-serif" font-size="11" fill="#3f3f46">
+        <tspan x="12" dy="0">I can help with that! Order #4521</tspan>
+        <tspan x="12" dy="18">is eligible for a full refund.</tspan>
+        <tspan x="12" dy="18">Shall I process it now?</tspan>
+      </text>
+    </g>
+
+    <!-- Sources -->
+    <g transform="translate(16, 274)">
+      <text x="0" y="12" font-family="system-ui, sans-serif" font-size="10" fill="#a1a1aa" font-weight="500">Sources used</text>
+      <rect x="0" y="20" width="180" height="22" rx="4" fill="#f4f4f5"/>
+      <text x="8" y="35" font-family="system-ui, sans-serif" font-size="10" fill="#71717a">📄 Refund Policy v2.3</text>
+      <rect x="0" y="48" width="160" height="22" rx="4" fill="#f4f4f5"/>
+      <text x="8" y="63" font-family="system-ui, sans-serif" font-size="10" fill="#71717a">📄 Order Management FAQ</text>
+    </g>
+
+    <!-- Action bar -->
+    <g transform="translate(16, 370)">
+      <rect x="0" y="0" width="130" height="32" rx="8" fill="#0d9488"/>
+      <text x="65" y="21" font-family="system-ui, sans-serif" font-size="12" fill="white" font-weight="600" text-anchor="middle">✓ Send to customer</text>
+      
+      <rect x="142" y="0" width="60" height="32" rx="8" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+      <text x="172" y="21" font-family="system-ui, sans-serif" font-size="12" fill="#71717a" font-weight="500" text-anchor="middle">Edit</text>
+    </g>
+
+    <!-- Helpful? -->
+    <g transform="translate(16, 414)">
+      <text x="0" y="12" font-family="system-ui, sans-serif" font-size="11" fill="#a1a1aa">Was this helpful?</text>
+      <rect x="120" y="-2" width="40" height="18" rx="4" fill="#f4f4f5" stroke="#e4e4e7" stroke-width="0.5"/>
+      <text x="140" y="12" font-family="system-ui, sans-serif" font-size="10" fill="#71717a" text-anchor="middle">Yes</text>
+      <rect x="166" y="-2" width="36" height="18" rx="4" fill="#f4f4f5" stroke="#e4e4e7" stroke-width="0.5"/>
+      <text x="184" y="12" font-family="system-ui, sans-serif" font-size="10" fill="#71717a" text-anchor="middle">No</text>
+    </g>
+  </g>
+</svg>

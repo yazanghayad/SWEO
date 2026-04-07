@@ -1,0 +1,1 @@
+@layer components{.recharts-bar-rectangle{& path:first-child{fill:#fef5d7}& path:last-child{fill:url(#dotPatternLightModeActive)}& rect{fill:var(--color-cxm-cream-dark)}}.recharts-bar-rectangle:last-child{& path:first-child{fill:var(--color-orange)}& path:last-child{fill:url(#dotPatternLightModeActive)}}}

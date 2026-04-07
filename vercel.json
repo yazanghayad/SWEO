@@ -1,0 +1,58 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "regions": ["arn1"],
+  "redirects": [
+    {
+      "source": "/dashboard/:path*",
+      "has": [{ "type": "host", "value": "sweo.se" }],
+      "destination": "https://app.sweo.se/auth/sign-in",
+      "permanent": false
+    },
+    {
+      "source": "/auth/:path*",
+      "has": [{ "type": "host", "value": "sweo.se" }],
+      "destination": "https://app.sweo.se/auth/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/setup/:path*",
+      "has": [{ "type": "host", "value": "sweo.se" }],
+      "destination": "https://app.sweo.se/setup/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/docs/:path*",
+      "has": [{ "type": "host", "value": "sweo.se" }],
+      "destination": "https://docs.sweo.se/:path*",
+      "permanent": false
+    }
+  ],
+  "functions": {
+    "src/app/api/chatbot/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/chat/stream/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/embeddings/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/simulate/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/webhooks/voice/route.ts": {
+      "maxDuration": 30
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/detect-gaps",
+      "schedule": "0 3 * * *"
+    },
+    {
+      "path": "/api/outbound/cron",
+      "schedule": "*/5 * * * *"
+    }
+  ]
+}

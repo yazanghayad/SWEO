@@ -1,0 +1,83 @@
+/* ══════════════════════════════════════════════════════════
+   sweo-help-center.css
+   Help center styles.
+   Applied via help/en/layout.tsx alongside 95a79650f8d8b193.css
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Block 0: Help center :root variables ── */
+:root{--body-bg: rgb(255, 255, 255);
+--body-image: none;
+--body-bg-rgb: 255, 255, 255;
+--body-border: rgb(230, 230, 230);
+--body-primary-color: #1a1a1a;
+--body-secondary-color: #737373;
+--body-reaction-bg: rgb(242, 242, 242);
+--body-reaction-text-color: rgb(64, 64, 64);
+--body-toc-active-border: #737373;
+--body-toc-inactive-border: #f2f2f2;
+--body-toc-inactive-color: #737373;
+--body-toc-active-font-weight: 400;
+--body-table-border: rgb(204, 204, 204);
+--body-color: hsl(0, 0%, 0%);
+--footer-bg: rgb(0, 0, 0);
+--footer-image: none;
+--footer-border: rgb(51, 51, 51);
+--footer-color: hsl(0, 0%, 100%);
+--header-bg: none;
+--header-image: url(/i/o/fin4all/702768/8f4cb972c18b95899cbf67ac24a1/d9e2f0cd66c20aaa86f0722062faf02f.png);
+--header-color: hsl(0, 0%, 100%);
+--collection-card-bg: rgb(244, 243, 237);
+--collection-card-image: none;
+--collection-card-color: hsl(0, 0%, 0%);
+--card-bg: rgb(255, 255, 255);
+--card-border-color: rgb(230, 230, 230);
+--card-border-inner-radius: 6px;
+--card-border-radius: 8px;
+--card-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+--search-bar-border-radius: 10px;
+--search-bar-width: 100%;
+--ticket-blue-bg-color: #dce1f9;
+--ticket-blue-text-color: #334bfa;
+--ticket-green-bg-color: #d7efdc;
+--ticket-green-text-color: #0f7134;
+--ticket-orange-bg-color: #ffebdb;
+--ticket-orange-text-color: #b24d00;
+--ticket-red-bg-color: #ffdbdb;
+--ticket-red-text-color: #df2020;
+--header-height: 245px;
+--header-subheader-background-color: #000000;
+--header-subheader-font-color: #FFFFFF;
+--content-block-bg: none;
+--content-block-image: url(/i/o/fin4all/769565/7663a87f0973915dde10fc4d4f64/e45842e7a5337ad24575c5a589b4c242.jpg);
+--content-block-color: hsl(0, 0%, 100%);
+--content-block-button-bg: rgb(224, 236, 38);
+--content-block-button-image: none;
+--content-block-button-color: hsl(0, 0%, 0%);
+--content-block-button-radius: 8px;
+--content-block-margin: 0;
+--content-block-width: auto;
+--primary-color: hsl(15, 22%, 7%);
+--primary-color-alpha-10: hsla(15, 22%, 7%, 0.1);
+--primary-color-alpha-60: hsla(15, 22%, 7%, 0.6);
+--text-on-primary-color: #ffffff}
+
+/* ── Block 1: Font family primary ── */
+:root{--font-family-primary: system-ui, "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}
+
+/* ── Block 2: Font family secondary ── */
+:root{--font-family-secondary: system-ui, "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}
+
+/* ── Block 3: Header fade background ── */
+.fade-background.jsx-cf6f0ea00fa5c760{background:radial-gradient(333.38%100%at 50%0%,rgba(var(--body-bg-rgb),0)0%,rgba(var(--body-bg-rgb),.00925356)11.67%,rgba(var(--body-bg-rgb),.0337355)21.17%,rgba(var(--body-bg-rgb),.0718242)28.85%,rgba(var(--body-bg-rgb),.121898)35.03%,rgba(var(--body-bg-rgb),.182336)40.05%,rgba(var(--body-bg-rgb),.251516)44.25%,rgba(var(--body-bg-rgb),.327818)47.96%,rgba(var(--body-bg-rgb),.409618)51.51%,rgba(var(--body-bg-rgb),.495297)55.23%,rgba(var(--body-bg-rgb),.583232)59.47%,rgba(var(--body-bg-rgb),.671801)64.55%,rgba(var(--body-bg-rgb),.759385)70.81%,rgba(var(--body-bg-rgb),.84436)78.58%,rgba(var(--body-bg-rgb),.9551)88.2%,rgba(var(--body-bg-rgb),1)100%),var(--header-image),var(--header-bg);background-size:cover;background-position-x:center}
+
+/* ── Block 4: Table of contents scrollbar ── */
+.table-of-contents::-webkit-scrollbar{width:8px}.table-of-contents::-webkit-scrollbar-thumb{background-color:#f2f2f2;border-radius:8px}
+
+/* ── Block 5: Table of contents sizing ── */
+.table_of_contents.jsx-a49d9ef8a9865a27{max-width:260px;min-width:260px}
+
+/* ── Block 6: Related articles link color ── */
+.related_articles section a{color:initial}
+
+/* ── Block 7: Article body + intercom block styles ── */
+.article_body a:not(.intercom-h2b-button){color:var(--primary-color)}article a.intercom-h2b-button{background-color:var(--primary-color);border:0}.zendesk-article table{overflow-x:scroll!important;display:block!important;height:auto!important}.intercom-interblocks-unordered-nested-list ul,.intercom-interblocks-ordered-nested-list ol{margin-top:16px;margin-bottom:16px}.intercom-interblocks-unordered-nested-list ul .intercom-interblocks-unordered-nested-list ul,.intercom-interblocks-unordered-nested-list ul .intercom-interblocks-ordered-nested-list ol,.intercom-interblocks-ordered-nested-list ol .intercom-interblocks-ordered-nested-list ol,.intercom-interblocks-ordered-nested-list ol .intercom-interblocks-unordered-nested-list ul{margin-top:0;margin-bottom:0}.intercom-interblocks-image a:focus{outline-offset:3px}

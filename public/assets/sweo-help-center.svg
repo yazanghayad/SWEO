@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1366" height="768" viewBox="0 0 1366 768">
+  <defs>
+    <filter id="shadow1" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>
+    </filter>
+    <filter id="shadow2" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#eef2f7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1366" height="768" fill="url(#bgGrad)" rx="0"/>
+
+  <!-- Header Section -->
+  <text x="683" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="800" fill="#18181b" text-anchor="middle">
+    Help Center, Self-serve knowledge for customers
+    <tspan dx="12" font-size="36">📚</tspan>
+  </text>
+  <text x="683" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#3f3f46" text-anchor="middle" font-style="italic">
+    Organize articles and let customers find answers on their own.
+  </text>
+
+  <!-- Left Side: Help Center Search + Article -->
+  <!-- Help Center label -->
+  <g transform="translate(80, 200)">
+    <rect x="0" y="0" width="36" height="36" rx="8" fill="#2563eb"/>
+    <text x="18" y="24" font-family="system-ui, sans-serif" font-size="18" fill="white" text-anchor="middle">📖</text>
+    <text x="46" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#18181b">Help Center</text>
+  </g>
+
+  <!-- Search Bar -->
+  <g transform="translate(80, 270)" filter="url(#shadow2)">
+    <rect width="540" height="50" rx="12" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+    <text x="44" y="31" font-family="system-ui, sans-serif" font-size="15" fill="#a1a1aa">How do I reset my password?</text>
+    <!-- Search icon -->
+    <circle cx="24" cy="25" r="8" fill="none" stroke="#a1a1aa" stroke-width="1.5"/>
+    <line x1="30" y1="31" x2="34" y2="35" stroke="#a1a1aa" stroke-width="1.5"/>
+    <!-- Search button -->
+    <rect x="420" y="8" width="108" height="34" rx="8" fill="#2563eb"/>
+    <text x="458" y="30" font-family="system-ui, sans-serif" font-size="13" fill="white" font-weight="600">Search</text>
+    <text x="438" y="30" font-family="system-ui, sans-serif" font-size="14" fill="white">🔍</text>
+  </g>
+
+  <!-- Article Preview Card -->
+  <g transform="translate(80, 340)" filter="url(#shadow1)">
+    <rect width="540" height="300" rx="16" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+    
+    <!-- Breadcrumb -->
+    <text x="24" y="30" font-family="system-ui, sans-serif" font-size="11" fill="#a1a1aa">
+      Help Center → Account Settings → Security
+    </text>
+    
+    <!-- Article title -->
+    <text x="24" y="62" font-family="system-ui, sans-serif" font-size="20" fill="#18181b" font-weight="700">How to Reset Your Password</text>
+    
+    <!-- Metadata -->
+    <text x="24" y="85" font-family="system-ui, sans-serif" font-size="11" fill="#a1a1aa">Updated 2 days ago · 3 min read · 1,247 views</text>
+    
+    <!-- Divider -->
+    <line x1="24" y1="98" x2="516" y2="98" stroke="#f4f4f5" stroke-width="1"/>
+    
+    <!-- Content -->
+    <text x="24" y="125" font-family="system-ui, sans-serif" font-size="14" fill="#3f3f46">
+      <tspan x="24" dy="0">If you've forgotten your password, follow these steps to</tspan>
+      <tspan x="24" dy="24">reset it and regain access to your account:</tspan>
+      <tspan x="24" dy="36" font-weight="600">Step 1: Go to the login page</tspan>
+      <tspan x="24" dy="22">Click "Forgot Password?" below the sign-in form.</tspan>
+      <tspan x="24" dy="30" font-weight="600">Step 2: Enter your email</tspan>
+      <tspan x="24" dy="22">We'll send a reset link to your registered email.</tspan>
+    </text>
+
+    <!-- Tags -->
+    <g transform="translate(24, 270)">
+      <rect x="0" y="-12" width="70" height="22" rx="4" fill="#eff6ff"/>
+      <text x="35" y="3" font-family="system-ui, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">Account</text>
+      <rect x="78" y="-12" width="65" height="22" rx="4" fill="#eff6ff"/>
+      <text x="111" y="3" font-family="system-ui, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">Security</text>
+      <rect x="151" y="-12" width="80" height="22" rx="4" fill="#eff6ff"/>
+      <text x="191" y="3" font-family="system-ui, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">Password</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Collections Widget -->
+  <g transform="translate(750, 200)" filter="url(#shadow1)">
+    <rect width="320" height="440" rx="16" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+    
+    <!-- Widget Header -->
+    <rect width="320" height="52" rx="16" fill="#2563eb"/>
+    <rect y="16" width="320" height="36" fill="#2563eb"/>
+    <g transform="translate(16, 14)">
+      <rect width="28" height="28" rx="6" fill="white" fill-opacity="0.2"/>
+      <text x="14" y="20" font-family="system-ui, sans-serif" font-size="14" fill="white" text-anchor="middle">📚</text>
+    </g>
+    <text x="54" y="34" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="white">Help Center</text>
+    <text x="238" y="34" font-family="system-ui, sans-serif" font-size="12" fill="white" fill-opacity="0.7">3 collections</text>
+
+    <!-- Search in widget -->
+    <g transform="translate(16, 66)">
+      <rect width="288" height="36" rx="8" fill="#f4f4f5" stroke="#e4e4e7" stroke-width="0.5"/>
+      <text x="32" y="24" font-family="system-ui, sans-serif" font-size="12" fill="#a1a1aa">Search articles...</text>
+      <circle cx="20" cy="18" r="6" fill="none" stroke="#a1a1aa" stroke-width="1"/>
+      <line x1="24" y1="22" x2="27" y2="25" stroke="#a1a1aa" stroke-width="1"/>
+    </g>
+
+    <!-- Collections -->
+    <!-- Collection 1 -->
+    <g transform="translate(16, 118)">
+      <rect width="288" height="72" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+      <rect x="12" y="14" width="40" height="40" rx="8" fill="#dbeafe"/>
+      <text x="32" y="40" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">🚀</text>
+      <text x="64" y="32" font-family="system-ui, sans-serif" font-size="13" fill="#18181b" font-weight="600">Getting Started</text>
+      <text x="64" y="50" font-family="system-ui, sans-serif" font-size="11" fill="#71717a">8 articles</text>
+      <text x="250" y="42" font-family="system-ui, sans-serif" font-size="16" fill="#a1a1aa">→</text>
+    </g>
+
+    <!-- Collection 2 -->
+    <g transform="translate(16, 200)">
+      <rect width="288" height="72" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+      <rect x="12" y="14" width="40" height="40" rx="8" fill="#dbeafe"/>
+      <text x="32" y="40" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">💳</text>
+      <text x="64" y="32" font-family="system-ui, sans-serif" font-size="13" fill="#18181b" font-weight="600">Billing &amp; Payments</text>
+      <text x="64" y="50" font-family="system-ui, sans-serif" font-size="11" fill="#71717a">12 articles</text>
+      <text x="250" y="42" font-family="system-ui, sans-serif" font-size="16" fill="#a1a1aa">→</text>
+    </g>
+
+    <!-- Collection 3 -->
+    <g transform="translate(16, 282)">
+      <rect width="288" height="72" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+      <rect x="12" y="14" width="40" height="40" rx="8" fill="#dbeafe"/>
+      <text x="32" y="40" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">🔧</text>
+      <text x="64" y="32" font-family="system-ui, sans-serif" font-size="13" fill="#18181b" font-weight="600">Account Settings</text>
+      <text x="64" y="50" font-family="system-ui, sans-serif" font-size="11" fill="#71717a">6 articles</text>
+      <text x="250" y="42" font-family="system-ui, sans-serif" font-size="16" fill="#a1a1aa">→</text>
+    </g>
+
+    <!-- Stats bar -->
+    <g transform="translate(16, 376)">
+      <rect width="288" height="48" rx="8" fill="#eff6ff"/>
+      <text x="16" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#2563eb" font-weight="600">📊 This month</text>
+      <text x="16" y="38" font-family="system-ui, sans-serif" font-size="11" fill="#3b82f6">2,341 views · 89% found helpful</text>
+    </g>
+  </g>
+</svg>

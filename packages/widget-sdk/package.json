@@ -1,0 +1,49 @@
+{
+  "name": "@sweo/widget",
+  "version": "0.1.0",
+  "description": "SWEO Chat Widget SDK — programmatic control for the embeddable chat widget",
+  "license": "MIT",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    },
+    "./react": {
+      "import": {
+        "types": "./dist/types/react.d.ts",
+        "default": "./dist/esm/react.mjs"
+      },
+      "require": {
+        "types": "./dist/types/react.d.ts",
+        "default": "./dist/cjs/react.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["chat", "widget", "sweo", "customer-support", "ai"]
+}

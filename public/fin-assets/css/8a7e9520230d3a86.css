@@ -1,0 +1,49 @@
+﻿@font-face {
+  font-family: 'MediumLL';
+  src: local('Inter'), local('system-ui');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}@font-face {
+  font-family: 'MediumLL';
+  src: local('Inter'), local('system-ui');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}@font-face {
+  font-family: 'MediumLL';
+  src: local('Inter'), local('system-ui');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}@font-face {
+  font-family: 'MediumLL';
+  src: local('Inter'), local('system-ui');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}.__className_62d6e6{font-family:MediumLL,MediumLL Fallback}.__variable_62d6e6{--font-MediumLL:"MediumLL","MediumLL Fallback"}@font-face {
+  font-family: 'IvoryLL';
+  src: local('Lora'), local('Georgia'), local('ui-serif');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}@font-face {
+  font-family: 'IvoryLL';
+  src: local('Lora'), local('Georgia'), local('ui-serif');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}.__className_d7b1ac{font-family:IvoryLL,IvoryLL Fallback;font-weight:300;font-style:normal}.__variable_d7b1ac{--font-IvoryLL:"IvoryLL","IvoryLL Fallback"}@font-face {
+  font-family: 'AeonikFono';
+  src: local('JetBrains Mono'), local('ui-monospace'), local('Menlo');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}@font-face {
+  font-family: 'AeonikFono';
+  src: local('JetBrains Mono'), local('ui-monospace'), local('Menlo');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}.__className_b3a102{font-family:AeonikFono,AeonikFono Fallback;font-weight:300;font-style:normal}.__variable_b3a102{--font-AeonikFono:"AeonikFono","AeonikFono Fallback"}
